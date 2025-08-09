@@ -1,6 +1,6 @@
 'use server'
 
-export async function submitContact(formData: FormData) {
+export async function submitContact(formData: FormData): Promise<void> {
   const data = {
     name: formData.get('name'),
     email: formData.get('email'),
@@ -9,10 +9,9 @@ export async function submitContact(formData: FormData) {
     message: formData.get('message'),
   }
 
-  // TODO: send email (Resend, AWS SES, or your mail provider) or save to DB.
-  // For now, log to server and pretend success:
+  // TODO: send email / save to DB
   console.log('Contact submission:', data)
 
-  // Simple thank-you redirect (Next.js can return a redirect)
-  return { success: true }
+  // No return value → satisfies (formData) => void | Promise<void>
+  // Optional later: use redirect('/contact?sent=1')
 }
