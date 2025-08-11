@@ -1,37 +1,45 @@
 export const metadata = { title: 'Services' }
 
-const rows = [
-  { name: 'Regular Home Clean', includes: 'Kitchen, bathrooms, dust & wipe, vacuum & mop', price: 'From $129' },
-  { name: 'Deep Clean', includes: 'Inside cabinets, skirting boards, detail surfaces', price: 'From $249' },
-  { name: 'End-of-Lease', includes: 'Bond-ready detail across all rooms', price: 'From $349' },
-  { name: 'Office Clean', includes: 'Flexible schedules, supplies provided', price: 'POA' },
+const services = [
+  {
+    name: 'Residential Clean',
+    description: 'A complete cleaning service for your home, including kitchen, bathrooms, dusting, wiping, vacuuming, and mopping.',
+  },
+  {
+    name: 'Office Clean',
+    description: 'Flexible and reliable office cleaning services to create a clean and productive work environment. We can work around your schedule.',
+  },
+  {
+    name: 'End of Lease',
+    description: 'A thorough, bond-ready cleaning service to ensure you get your bond back. We clean all rooms and surfaces in detail.',
+  },
+  {
+    name: 'Construction Clean',
+    description: 'Post-construction cleaning to remove dust, debris, and other residues, leaving your new or renovated space spotless.',
+  },
+  {
+    name: 'Deep Clean',
+    description: 'An intensive cleaning service that targets hard-to-reach areas, including inside cabinets, skirting boards, and detailed surfaces.',
+  },
+  {
+    name: 'Commercial Clean',
+    description: 'Comprehensive cleaning solutions for commercial properties of all sizes, including retail stores, warehouses, and more.',
+  },
 ]
 
 export default function ServicesPage() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-12">
-      <h1 className="text-3xl font-bold">Services & pricing</h1>
-      <p className="mt-2 text-gray-600">Transparent pricing, tailored quotes for larger spaces.</p>
+      <h1 className="text-3xl font-bold">Services</h1>
+      <p className="mt-2 text-gray-600">We offer a wide range of cleaning services to meet your needs.</p>
 
-      <div className="mt-8 overflow-x-auto rounded-lg border">
-        <table className="min-w-[640px] w-full text-sm">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="text-left p-3">Service</th>
-              <th className="text-left p-3">Includes</th>
-              <th className="text-left p-3">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r) => (
-              <tr key={r.name} className="border-t">
-                <td className="p-3 font-medium">{r.name}</td>
-                <td className="p-3 text-gray-700">{r.includes}</td>
-                <td className="p-3">{r.price}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <div key={service.name} className="border rounded-lg p-6">
+            <h2 className="text-xl font-bold">{service.name}</h2>
+            <p className="mt-2 text-gray-700">{service.description}</p>
+          </div>
+        ))}
       </div>
     </main>
   )
