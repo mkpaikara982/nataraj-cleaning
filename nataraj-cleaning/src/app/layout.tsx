@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.natarajcleaning.com'), // change to your domain later
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nataraj Cleaning',
     description: 'Reliable residential & commercial cleaning in your area.',
-    url: 'https://www.natarajcleaning.com',
+    url: 'https://www.natarajcleaning.com.au',
     siteName: 'Nataraj Cleaning',
-    images: [{ url: '/logo.svg', width: 512, height: 512, alt: 'Nataraj Cleaning logo' }],
+    images: [{ url: '/logo_new.svg', width: 512, height: 512, alt: 'Nataraj Cleaning logo' }],
     locale: 'en_AU',
     type: 'website',
   },

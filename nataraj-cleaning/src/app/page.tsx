@@ -1,19 +1,18 @@
-import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import ServicesGrid from '@/components/ServicesGrid'
 import CTA from '@/components/CTA'
-import Footer from '@/components/Footer'
+import Slideshow from '@/components/Slideshow'
+
 
 export default function HomePage() {
   return (
     <>
-      <Header />
       <main>
+        <Slideshow />
         <Hero />
         <ServicesGrid />
         <CTA />
       </main>
-      <Footer />
     </>
   )
 }
