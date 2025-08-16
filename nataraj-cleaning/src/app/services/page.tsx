@@ -63,7 +63,7 @@ export default function ServicesPage() {
         <h2 className="text-2xl font-semibold mb-4">Need a Custom Solution?</h2>
         <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
           We understand that every space is unique. Contact us to discuss your specific cleaning requirements,
-          and we'll create a customized plan that works for you.
+          and we&apos;ll create a customized plan that works for you.
         </p>
         <Link
           href="/contact"

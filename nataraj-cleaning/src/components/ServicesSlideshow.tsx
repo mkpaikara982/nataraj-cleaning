@@ -30,32 +30,29 @@ export default function ServicesSlideshow() {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  // Helper to keep indexes in range
-  const at = (i: number) => (i + services.length) % services.length;
-
-  // Choose a few neighbors for each side (customize count if you like)
+  // Show the first 3 services as constant side thumbnails
   const sideCount = 3;
-  const leftThumbs = Array.from({ length: sideCount }, (_, k) => at(currentIndex - (k + 1))).reverse();
-  const rightThumbs = Array.from({ length: sideCount }, (_, k) => at(currentIndex + (k + 1)));
+  const leftThumbs = services.slice(0, sideCount);
+  const rightThumbs = services.slice(-sideCount);
 
   return (
     <section className="relative w-full bg-gray-900">
       {/* Grid: side thumbs / main / side thumbs */}
       <div className="grid grid-cols-12 gap-4 items-center px-4 py-6 md:py-8 lg:py-10">
 
-        {/* Left thumbnails (hide on small) */}
+        {/* Left thumbnails (constant, hide on small) */}
         <aside className="hidden md:flex md:col-span-2 flex-col gap-4 h-full">
-          {leftThumbs.map((idx) => (
+          {leftThumbs.map((service, idx) => (
             <button
-              key={`left-${idx}`}
+              key={`left-${service.title}`}
               onClick={() => !isAnimating && setCurrentIndex(idx)}
               className="group relative w-full pb-[150%] overflow-hidden rounded-md focus:outline-none focus:ring-2 focus:ring-white/50"
-              aria-label={`Go to ${services[idx].title}`}
+              aria-label={`Go to ${service.title}`}
               disabled={isAnimating}
             >
               <Image
-                src={services[idx].img}
-                alt={services[idx].title}
+                src={service.img}
+                alt={service.title}
                 fill
                 className="object-contain transition-transform duration-300 group-hover:scale-105"
                 sizes="(min-width:1024px) 16vw, (min-width:768px) 20vw, 40vw"
@@ -66,10 +63,10 @@ export default function ServicesSlideshow() {
           ))}
         </aside>
 
-        {/* Main slideshow */}
-        <div className="col-span-12 md:col-span-8">
+        {/* Main slideshow (make 30% smaller) */}
+        <div className="col-span-12 md:col-span-8 flex justify-center">
           {/* Aspect ratio box (2:3 / tall). All % based */}
-          <div className="relative w-full pb-[150%] overflow-hidden rounded-xl">
+          <div className="relative w-full max-w-[70%] pb-[105%] overflow-hidden rounded-xl">
             {services.map((service, index) => (
               <div
                 key={service.title}
@@ -88,7 +85,7 @@ export default function ServicesSlideshow() {
                   fill
                   className="object-contain"
                   priority={index === 0}
-                  sizes="(min-width:1024px) 66vw, (min-width:768px) 60vw, 100vw"
+                  sizes="(min-width:1024px) 46vw, (min-width:768px) 42vw, 70vw"
                 />
 
                 {/* Top-to-bottom gradient for legibility */}
@@ -147,19 +144,19 @@ export default function ServicesSlideshow() {
           </div>
         </div>
 
-        {/* Right thumbnails (hide on small) */}
+        {/* Right thumbnails (constant, hide on small) */}
         <aside className="hidden md:flex md:col-span-2 flex-col gap-4 h-full">
-          {rightThumbs.map((idx) => (
+          {rightThumbs.map((service, idx) => (
             <button
-              key={`right-${idx}`}
-              onClick={() => !isAnimating && setCurrentIndex(idx)}
+              key={`right-${service.title}`}
+              onClick={() => !isAnimating && setCurrentIndex(services.length - sideCount + idx)}
               className="group relative w-full pb-[150%] overflow-hidden rounded-md focus:outline-none focus:ring-2 focus:ring-white/50"
-              aria-label={`Go to ${services[idx].title}`}
+              aria-label={`Go to ${service.title}`}
               disabled={isAnimating}
             >
               <Image
-                src={services[idx].img}
-                alt={services[idx].title}
+                src={service.img}
+                alt={service.title}
                 fill
                 className="object-contain transition-transform duration-300 group-hover:scale-105"
                 sizes="(min-width:1024px) 16vw, (min-width:768px) 20vw, 40vw"
