@@ -19,7 +19,7 @@ export default function Header() {
         <div className="hidden md:flex md:items-center md:justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/logo_new.svg"
+              src="/logo.svg"
               alt="Nataraj Cleaning"
               width={0}
               height={0}
