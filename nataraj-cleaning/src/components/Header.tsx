@@ -2,10 +2,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
+import { services } from '@/data/services'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
     <header
@@ -34,7 +36,39 @@ export default function Header() {
 
           <nav className="flex items-center gap-6 text-lg">
             <Link href="/" className="hover:text-sky-700">Home</Link>
-            <Link href="/services" className="hover:text-sky-700">Services</Link>
+            
+            {/* Services Dropdown */}
+            <div className="relative group">
+              <button
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+                className="flex items-center gap-1 hover:text-sky-700"
+              >
+                Services
+                <ChevronDown size={20} className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Dropdown Menu */}
+              <div
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+                className={`absolute top-full left-0 w-64 rounded-lg py-2 transition-all transform origin-top backdrop-blur-md
+                          ${isServicesOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
+                          border border-green-200 shadow-lg`}
+                style={{ backgroundColor: 'rgba(154, 219, 179, 0.95)' }}
+              >
+                {services.map((service) => (
+                  <Link
+                    key={service.name}
+                    href={`/services/${service.name}`}
+                    className="block px-4 py-2 hover:bg-green-100/50 hover:text-green-800 text-base transition-colors duration-200"
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <Link href="/about" className="hover:text-sky-700">About</Link>
             <Link
               href="/contact"
@@ -79,7 +113,23 @@ export default function Header() {
             <nav className="mt-2 py-2 border-t">
               <div className="flex flex-col gap-2">
                 <Link href="/" className="px-2 py-1 hover:bg-gray-100 rounded-md">Home</Link>
-                <Link href="/services" className="px-2 py-1 hover:bg-gray-100 rounded-md">Services</Link>
+                
+                {/* Mobile Services Links */}
+                <div className="px-2">
+                  <div className="font-medium py-1">Services</div>
+                  <div className="ml-4 flex flex-col gap-1">
+                    {services.map((service) => (
+                      <Link
+                        key={service.name}
+                        href={`/services/${service.name}`}
+                        className="py-1 hover:bg-gray-100 rounded-md text-sm"
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
                 <Link href="/about" className="px-2 py-1 hover:bg-gray-100 rounded-md">About</Link>
                 <Link
                   href="/contact"

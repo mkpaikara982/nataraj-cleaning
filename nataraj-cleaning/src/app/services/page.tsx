@@ -2,7 +2,10 @@ import { services } from '@/data/services'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const metadata = { title: 'Services' }
+export const metadata = { 
+  title: 'Our Services - Nataraj Cleaning',
+  description: 'Explore our comprehensive range of professional cleaning services including residential, commercial, end of lease, and deep cleaning solutions.'
+}
 
 export default function ServicesPage() {
   return (
