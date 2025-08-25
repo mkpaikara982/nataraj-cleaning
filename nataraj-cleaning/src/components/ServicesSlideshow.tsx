@@ -100,12 +100,12 @@ export default function ServicesSlideshow() {
                     {service.shortDesc}
                   </p>
                   <Link
-                        key={service.name}
-                        href={`/services/${service.name}`}
-                        className="inline-flex items-center px-5 py-2.5 rounded-md text-sm bg-green-600 text-white hover:bg-gray-100"
-                      >
-                        {service.title}
-                      </Link>
+                    key={service.name}
+                    href={`/services/${service.name}`}
+                   className="inline-flex items-center px-5 py-2.5 rounded-md text-sm bg-green-600 text-white hover:bg-gray-100"
+                  >
+                    {service.title}
+                  </Link>
                 </div>
               </div>
             ))}
