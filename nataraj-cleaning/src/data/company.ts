@@ -44,8 +44,8 @@ export const companyInfo: CompanyInfo = {
       description: 'Your satisfaction is our priority. We listen to your needs and deliver accordingly.'
     }
   ],
-  // socialMedia: {
-  //   facebook: 'https://facebook.com/natarajcleaning',
-  //   instagram: 'https://instagram.com/natarajcleaning'
-  // }
+  socialMedia: {
+    facebook: 'https://facebook.com/natarajcleaning',
+    instagram: 'https://instagram.com/natarajcleaning'
+  }
 }
