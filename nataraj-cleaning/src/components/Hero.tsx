@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import { services } from '@/data/services'
 
 export default function Hero() {
+  const isOdd = services.length % 2 !== 0
+
   return (
     <section className="bg-gradient-to-b from-sky-50 to-white border-b">
       <div className="mx-auto max-w-7xl px-4 py-20 grid gap-8 md:grid-cols-2 items-center">
@@ -30,22 +33,22 @@ export default function Hero() {
 
         <div className="aspect-video rounded-lg border bg-white shadow-sm p-6">
           <ul className="grid grid-cols-2 gap-4 text-sm">
-            <li className="rounded-md border p-4">
-              <div className="font-semibold">Regular Cleaning</div>
-              <div className="text-gray-600 mt-1">Weekly or fortnightly</div>
-            </li>
-            <li className="rounded-md border p-4">
-              <div className="font-semibold">Deep Cleaning</div>
-              <div className="text-gray-600 mt-1">Top to bottom refresh</div>
-            </li>
-            <li className="rounded-md border p-4">
-              <div className="font-semibold">End‑of‑Lease</div>
-              <div className="text-gray-600 mt-1">Bond‑back friendly</div>
-            </li>
-            <li className="rounded-md border p-4">
-              <div className="font-semibold">Office Cleaning</div>
-              <div className="text-gray-600 mt-1">After‑hours available</div>
-            </li>
+            {services.map((service) => (
+              <li key={service.name} className="rounded-md border p-0">
+                <Link href={`/services/${service.name}`} className="block p-4 h-full">
+                  <div className="font-semibold">{service.title}</div>
+                  <div className="text-gray-600 mt-1">{service.shortDesc}</div>
+                </Link>
+              </li>
+            ))}
+            {isOdd && (
+              <li className="rounded-md border p-0">
+                <Link href="/services" className="block p-4 h-full">
+                  <div className="font-semibold">See All Services</div>
+                  <div className="text-gray-600 mt-1">Explore our full range of cleaning solutions.</div>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

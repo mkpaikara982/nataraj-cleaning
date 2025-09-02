@@ -22,9 +22,10 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
-          <div 
-            key={service.title} 
-            className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+          <Link
+            href={`/services/${service.name}`}
+            key={service.title}
+            className="group block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
           >
             {/* Image Container */}
             <div className="relative w-full pb-[150%]">
@@ -47,17 +48,9 @@ export default function ServicesPage() {
                 <p className="text-gray-700 text-sm leading-relaxed">
                   {service.desc}
                 </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center w-full px-4 py-2 bg-green-600 
-                           text-white font-medium rounded-lg hover:bg-green-700 
-                           transition-colors duration-200"
-                >
-                  Book This Service
-                </Link>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

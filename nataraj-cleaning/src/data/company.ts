@@ -18,8 +18,8 @@ export interface CompanyInfo {
 
 export const companyInfo: CompanyInfo = {
   name: 'Nataraj Cleaning',
-  tagline: 'Professional Cleaning Services in Melbourne',
-  address: '123 Example Street, Melbourne VIC 3000',
+  tagline: 'Professional Cleaning Services in Wollongong',
+  address: '123 Example Street, Wollongong NSW 2500',
   phone: '0412 345 678',
   email: 'info@natarajcleaning.com.au',
   aboutUs: `At Nataraj Cleaning, we pride ourselves on delivering exceptional cleaning services across Melbourne. 
@@ -44,8 +44,8 @@ export const companyInfo: CompanyInfo = {
       description: 'Your satisfaction is our priority. We listen to your needs and deliver accordingly.'
     }
   ],
-  socialMedia: {
-    facebook: 'https://facebook.com/natarajcleaning',
-    instagram: 'https://instagram.com/natarajcleaning'
-  }
+  // socialMedia: {
+  //   facebook: 'https://facebook.com/natarajcleaning',
+  //   instagram: 'https://instagram.com/natarajcleaning'
+  // }
 }

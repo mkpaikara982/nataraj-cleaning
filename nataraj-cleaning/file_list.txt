@@ -1,0 +1,54 @@
+.gitignore
+README.md
+eslint.config.mjs
+file-list.txt
+next.config.ts
+package-lock.json
+package.json
+postcss.config.mjs
+public/file.svg
+public/globe.svg
+public/logo.svg
+public/logo_new.svg
+public/next.svg
+public/services/Commercial Clean.png
+public/services/Construction Clean.png
+public/services/Deep Clean.png
+public/services/End of Lease Clean.png
+public/services/Office Clean.png
+public/services/Residential Clean.png
+public/slideshow/rename_files.sh
+public/slideshow/slide_cleaning_01.jpg
+public/slideshow/slide_cleaning_02.jpg
+public/slideshow/slide_cleaning_03.jpg
+public/slideshow/slide_cleaning_04.jpg
+public/slideshow/slide_cleaning_05.jpg
+public/slideshow/slide_cleaning_06.jpg
+public/slideshow/slide_cleaning_07.jpg
+public/slideshow/slide_cleaning_08.jpg
+public/slideshow/slide_cleaning_09.jpg
+public/slideshow/slide_cleaning_11.jpg
+public/vercel.svg
+public/window.svg
+src/app/about/page.tsx
+src/app/contact/page.tsx
+src/app/contact/submit.tsx
+src/app/favicon.ico
+src/app/globals.css
+src/app/layout.tsx
+src/app/page.tsx
+src/app/robot.ts
+src/app/services/[slug]/page.tsx
+src/app/services/page.tsx
+src/app/sitemap.ts
+src/components/CTA.tsx
+src/components/Footer.tsx
+src/components/Header.tsx
+src/components/Hero.tsx
+src/components/ServicesGrid.tsx
+src/components/ServicesSlideshow.tsx
+src/components/Slideshow.tsx
+src/data/company.ts
+src/data/forms.ts
+src/data/services.ts
+tsconfig.json
